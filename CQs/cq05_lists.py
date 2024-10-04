@@ -5,7 +5,7 @@ __author__ = "730695410"
 
 def manual_append(int_list: list[int], value: int) -> None:
     """A function that adds a value to the end"""
-    int_list.append(value)
+    int_list.append(value)  # format for adding a value to a list
 
 
 def double(int_list: list[int]) -> None:

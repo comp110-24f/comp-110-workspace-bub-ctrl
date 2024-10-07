@@ -7,6 +7,8 @@ def all(list_of_ints: list[int], value: int) -> bool:
     """Checks if all of the ints in the list match the specified value"""
     index: int = 0
     while index < len(list_of_ints):  # loops over the indices to check for matches
+        if len(list_of_ints) == 0:
+            return False
         if list_of_ints[index] == value:
             index += 1
         else:

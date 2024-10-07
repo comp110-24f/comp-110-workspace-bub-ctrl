@@ -42,4 +42,9 @@ def is_equal(int_list_1: list[int], int_list_2: list[int]) -> bool:
 
 
 def extend(int_list_1: list[int], int_list_2: list[int]) -> None:
-    int_list_1.append(int_list_2)
+    index: int = 0
+    while index < len(int_list_2):
+        int_list_1.append(int_list_2[index])
+        index += 1
+
+    # int_list_1.append(int_list_2[index])

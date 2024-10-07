@@ -13,6 +13,17 @@ __author__ = "730695410"
 # for x in [1, 2, 3]:
 # print(x)
 
-names: list[str] = ["Alyssa", "Janet", "Vrinda"]
-for index in range(0, len(names)):
-    print(f"{index}: {names[index]}")
+# names: list[str] = ["Alyssa", "Janet", "Vrinda"]
+# for index in range(0, len(names)):
+# print(f"{index}: {names[index]}")
+
+# ys: list[int] = [110, 120]
+# for y in ys:
+# print(y)
+
+i: int = 0
+ys: list[int] = [110, 120]
+while i < len(ys):
+    y: float = ys[0]
+    print(y)
+    i += 1

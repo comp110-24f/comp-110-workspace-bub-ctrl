@@ -39,6 +39,6 @@ def add_at_index(int_list: list[int], added_elem: int, idx: int) -> None:
     for elem in range(
         len(int_list) - 1, idx, -1
     ):  # start at the end of list, stop at index, step left
-        # we start at the end of the list and move to the left because we add a value at the end
+        # start at the end of the list and move to the left because value added to end
         int_list[elem] = int_list[elem - 1]
     int_list[idx] = added_elem

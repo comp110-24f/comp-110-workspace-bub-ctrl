@@ -40,11 +40,13 @@ def favorite_color(input: dict[str, str]) -> str:
 def count(input: list[str]) -> dict[str, int]:
     count_dictionary: dict[str, int] = {}
     # function that counts the number of times the values appear in the input list
-    for color in input:
-        if color in count_dictionary:
+    for color in input:  # for the color in the list
+        if (
+            color in count_dictionary
+        ):  # if the color is already in the dictionary, add one to value(count)
             count_dictionary[color] += 1
-        else:
-            count_dictionary[color] = 1
+        else:  # if not
+            count_dictionary[color] = 1  # set count equal to one
     return count_dictionary
 
 
@@ -61,10 +63,7 @@ def alphabetizer(input: list[str]) -> dict[str, list[str]]:
 
 
 def update_attendance(input: dict[str, list[str]], day: str, student: str) -> None:
-    for day in input:  # for the days of the week in the dictionary
-        if day not in input:  # if the day is not in the dictionary
-            input[day] = []  # create an empty list at that key
-            input[day].append(student)  # append the student to that list
-        else:  # if it is
-            input[day].append(student)
-            # append the name of the student to the existing list
+    if day not in input:  # if the day is not in the dictionary
+        input[day] = []  # create an empty list at that key
+    if student not in input[day]:  # if the student is not already in that day
+        input[day].append(student)  # append the student to the list at that day

@@ -49,13 +49,22 @@ def count(input: list[str]) -> dict[str, int]:
 
 
 def alphabetizer(input: list[str]) -> dict[str, list[str]]:
-    new_dict: dict[str, list[str]] = {}
-    word_list: list[str] = []
-    for words in input:
-        word_list.append(words)
+    new_dict: dict[str, list[str]] = {}  # establish an empty dictionary
+    for words in input:  # for the elements in the list
+        if words[0].lower() in new_dict:  # if the first letter is in the dictionary
+            new_dict[words[0].lower()].append(words)  # add the word at that key
+        else:  # if not
+            new_dict[words[0].lower()] = [
+                words
+            ]  # new key with that letter and add the word
+    return new_dict
 
 
-# def update_attendance(input: dict[str, list[str]], day: str, student: str) -> None:
-# idx: int = 0
-# while idx < len(input):
-# input[day] = student
+def update_attendance(input: dict[str, list[str]], day: str, student: str) -> None:
+    for day in input:  # for the days of the week in the dictionary
+        if day not in input:  # if the day is not in the dictionary
+            input[day] = []  # create an empty list at that key
+            input[day].append(student)  # append the student to that list
+        else:  # if it is
+            input[day].append(student)
+            # append the name of the student to the existing list

@@ -63,23 +63,25 @@ class River:
         self.bears = living_bears  # now the list of bears only contains survivors of the condition
         return None
 
-    def repopulate_fish(self): # incorrect implementation
+    def repopulate_fish(self):  # incorrect implementation
+        """Adds fish to river."""
         new_fish: int = 0
-        len(self.fish) = new_fish
-        (new_fish//2) * 4 += self.fish
+        new_fish = len(self.fish) // 2 * 4
+        for x in range(0, new_fish):
+            self.fish.append(Fish())
         return None
 
-    def repopulate_bears(self): # incorrect implementation
+    def repopulate_bears(self):  # incorrect implementation
+        """Adds bears to river."""
         new_bears: int = 0
-        len(self.bears) = new_bears 
-        new_bears//2 += self.bears
-
-
+        new_bears = len(self.bears) // 2
+        for x in range(0, new_bears):
+            self.bears.append(Bear())
         return None
 
     def view_river(self):  # returns nothing, should print on three different lines
         """Prints the river stats."""
-        print(f" ~~~Day {self.day}: ~~~")
+        print(f"~~~ Day {self.day}: ~~~")
         print(f"Fish population: {len(self.fish)}")
         print(f"Bear population: {len(self.bears)}")
         return None

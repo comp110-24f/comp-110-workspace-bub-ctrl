@@ -7,13 +7,14 @@ from exercises.ex07.bear import Bear
 
 
 class River:
+    """Class for River."""
 
     day: int
     fish: list[Fish]
     bears: list[Bear]
 
     def __init__(self, num_fish: int, num_bears: int):
-        """New River with num_fish Fish and num_bears Bears"""
+        """New River with num_fish Fish and num_bears Bears."""
         self.day: int = 0
         self.fish: list[Fish] = []
         self.bears: list[Bear] = []
@@ -24,6 +25,7 @@ class River:
             self.bears.append(Bear())
 
     def check_ages(self):
+        """Checks to see which bears and fish survive."""
         surviving_bears: list = []  # establishing empty list
         surviving_fish: list = []  # establishing empty list
         for x in self.fish:  # for each fish in the list
@@ -37,6 +39,7 @@ class River:
         return None
 
     def bears_eating(self):
+        """Adjusts values as bears eat."""
         for x in self.bears:
             if len(self.fish) >= 5:
                 self.remove_fish(3)  # syntax to use method in same file
@@ -44,6 +47,7 @@ class River:
         return None
 
     def remove_fish(self, amount: int):  # new method that removes fish from river
+        """Removes fish."""
         idx: int = 0
         while idx < amount:
             self.fish.pop(0)  # remove fish at first index
@@ -51,6 +55,7 @@ class River:
         return None
 
     def check_hunger(self):
+        """Checks to see which bears starve."""
         living_bears: list = []
         for x in self.bears:  # for-in range returns the integer, just use for loop
             if x.hunger_score >= 0:  # if the hunger score of a bear is greater than 0
@@ -58,22 +63,29 @@ class River:
         self.bears = living_bears  # now the list of bears only contains survivors of the condition
         return None
 
-    def repopulate_fish(self):
+    def repopulate_fish(self): # incorrect implementation
+        new_fish: int = 0
+        len(self.fish) = new_fish
+        (new_fish//2) * 4 += self.fish
         return None
 
-    def repopulate_bears(self):
-        # if len(self.bears) >= 2:
+    def repopulate_bears(self): # incorrect implementation
+        new_bears: int = 0
+        len(self.bears) = new_bears 
+        new_bears//2 += self.bears
+
 
         return None
 
     def view_river(self):  # returns nothing, should print on three different lines
+        """Prints the river stats."""
         print(f" ~~~Day {self.day}: ~~~")
         print(f"Fish population: {len(self.fish)}")
         print(f"Bear population: {len(self.bears)}")
         return None
 
     def one_river_day(self):
-        """Simulate one day of life in the river"""
+        """Simulate one day of life in the river."""
         # Increase day by 1
         self.day += 1
         # Simulate one day for all Bears
@@ -96,6 +108,7 @@ class River:
         self.view_river()
 
     def one_river_week(self):
+        """Simulates one week in the river."""
         idx: int = 0
         while idx < 7:  # week has seven days
             self.one_river_day()  # calling method established in same file

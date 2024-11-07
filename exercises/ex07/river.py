@@ -2,8 +2,8 @@
 
 __author__ = "730695410"
 
-from ex07.fish import Fish
-from ex07.bear import Bear
+from exercises.ex07.fish import Fish
+from exercises.ex07.bear import Bear
 
 
 class River:
@@ -24,21 +24,52 @@ class River:
             self.bears.append(Bear())
 
     def check_ages(self):
+        surviving_bears: list = []  # establishing empty list
+        surviving_fish: list = []  # establishing empty list
+        for x in self.fish:  # for each fish in the list
+            if x.age <= 3:  # if the age meets survival threshold
+                surviving_fish.append(x)  # add the fish to the list of survivors
+        for x in self.bears:
+            if x.age <= 5:
+                surviving_bears.append(x)  # add the bear to the list of survivors
+        self.fish = surviving_fish
+        self.bears = surviving_bears  # now lists only contain survivors
         return None
 
     def bears_eating(self):
+        for x in self.bears:
+            if len(self.fish) >= 5:
+                self.remove_fish(3)  # syntax to use method in same file
+                x.eat(3)  # syntax to use method in different file
+        return None
+
+    def remove_fish(self, amount: int):  # new method that removes fish from river
+        idx: int = 0
+        while idx < amount:
+            self.fish.pop(0)  # remove fish at first index
+            idx += 1
         return None
 
     def check_hunger(self):
+        living_bears: list = []
+        for x in self.bears:  # for-in range returns the integer, just use for loop
+            if x.hunger_score >= 0:  # if the hunger score of a bear is greater than 0
+                living_bears.append(x)  # add that bear to the new list
+        self.bears = living_bears  # now the list of bears only contains survivors of the condition
         return None
 
     def repopulate_fish(self):
         return None
 
     def repopulate_bears(self):
+        # if len(self.bears) >= 2:
+
         return None
 
-    def view_river(self):
+    def view_river(self):  # returns nothing, should print on three different lines
+        print(f" ~~~Day {self.day}: ~~~")
+        print(f"Fish population: {len(self.fish)}")
+        print(f"Bear population: {len(self.bears)}")
         return None
 
     def one_river_day(self):
@@ -66,5 +97,6 @@ class River:
 
     def one_river_week(self):
         idx: int = 0
-        while idx < 6:
-            one_river_day()  # how to call a previous method?
+        while idx < 7:  # week has seven days
+            self.one_river_day()  # calling method established in same file
+            idx += 1

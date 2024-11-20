@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 
+__author__ = "730695410"
+
+
 class Node:
     """Defining the Node class."""
 
